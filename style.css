@@ -1,0 +1,24 @@
+i {
+  cursor: pointer;
+}
+.mint {
+  color: #41b883;
+}
+.blue {
+  color: #34495e;
+}
+.myBlueButton,
+.myBlueAlertBox {
+  background: #34495e;
+  color: #fff;
+}
+.myBlueButton:hover {
+  color: #f8f8f8;
+}
+.myMintButton {
+  background: #41b883;
+  color: #fff;
+}
+.myMintButton:hover {
+  color: #f8f8f8;
+}

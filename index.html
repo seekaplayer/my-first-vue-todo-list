@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Vue First Todo List</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>My First Vue Todo App</h1>
+        <div
+          class="alert alert-danger"
+          role="alert"
+          v-if="alertMessage.length > 0"
+        >
+          {{alertMessage}}
+        </div>
+        <div
+          class="alert myBlueAlertBox"
+          role="alert"
+          v-if="todos.length === 0"
+        >
+          You have no Todo Items!
+        </div>
+        <ul v-if="todos" class="list-group list-group-flush">
+          <li
+            class="list-group-item"
+            v-for="(todo, index) in todos"
+            :key="index"
+          >
+            <div v-if="todo.isEditing" class="input-group mb-3">
+              <input v-model="todo.text" type="text" class="form-control" />
+              <div class="input-group-append">
+                <button
+                  @click="todo.isEditing = false;"
+                  class="btn myBlueButton"
+                  type="submit"
+                >
+                  Update Todo
+                </button>
+              </div>
+            </div>
+
+            <span v-else>
+              {{ todo.text }}
+              <i class="fas fa-edit mint" @click="todo.isEditing = true"></i>
+              <i class="fas fa-trash blue" @click="deleteTodo(index)"></i>
+            </span>
+          </li>
+        </ul>
+        <br />
+        <div class="form-group">
+          <label for="exampleInputEmail1">Add Todo</label>
+          <input v-model="newTodoItem" type="text" class="form-control" />
+        </div>
+        <button class="btn myBlueButton" @click="addTodo">Add Todo</button>
+      </div>
+    </div>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
