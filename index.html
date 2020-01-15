@@ -63,8 +63,13 @@
         </ul>
         <br />
         <div class="form-group">
-          <label for="exampleInputEmail1">Add Todo</label>
-          <input v-model="newTodoItem" type="text" class="form-control" />
+          <label for="addTodo">Add Todo</label>
+          <input
+            v-model="newTodoItem"
+            type="text"
+            id="addTodo"
+            class="form-control"
+          />
         </div>
         <button class="btn myBlueButton" @click="addTodo">Add Todo</button>
       </div>
